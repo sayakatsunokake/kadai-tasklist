@@ -10,13 +10,13 @@
 #   http://dev.mysql.com/doc/refman/5.7/en/old-client.html
 #
 default: &default
-  adapter: mysql2
-  encoding: utf8
+  adapter: postgresql
+  encoding: unicode
   pool: 5
-  username: root
-  password:
-  socket: /var/run/mysqld/mysqld.sock
-
+  database: tasklist_production
+  username: tasklist
+  password: <%= ENV['MESSAGE-BOARD_DATABASE_PASSWORD'] %>
+  
 development:
   <<: *default
   database: tasklist_development
